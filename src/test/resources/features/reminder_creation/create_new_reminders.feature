@@ -39,4 +39,17 @@ Feature: As a busy tester, I should be able to create reminders, so that I can p
     | Review TestPlan A | 1     |
     | Review TestPlan B | 1     |
     | Review TestPlan C | 1     |
-    | Review TestPlan D | 2     |  
+    | Review TestPlan D | 2     |
+
+
+  @refresh
+  Scenario: Verifying reminders are maintained in list, even on browser refresh
+    Given Pravin is on create reminder landing page
+    When he creates following reminders
+    | Review TestPlan A |
+    | Review TestPlan B |
+    | Review TestPlan C |
+    | Review TestPlan D |
+    Then he should see a total of 4 reminders added to the list
+    When Pravin refreshes the reminder landing page
+    Then he should see a total of 4 reminders added to the list

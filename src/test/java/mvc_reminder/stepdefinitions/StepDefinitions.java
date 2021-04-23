@@ -36,6 +36,11 @@ public class StepDefinitions {
         actor.wasAbleTo(NavigateTo.theMvcToDoLandingPage());
     }
 
+    @When("{actor} refreshes the reminder landing page")
+    public void renavigate_to_landing_page(Actor actor) {
+        actor.wasAbleTo(NavigateTo.theMvcToDoLandingPage());
+    }
+
 
     @And("{actor} should see a total of {int} reminders added to the list")
     public void should_see_total_reminder_item(Actor actor, int size) {
