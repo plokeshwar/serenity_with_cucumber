@@ -20,7 +20,7 @@ src
 ```
 
 ## The sample scenario
-Both variations of the sample project uses the sample Cucumber scenario. In this scenario, Sergey (who likes to search for stuff) is performing a search on the internet:
+Both variations of the sample project uses the sample Cucumber scenario.
 
 ```Gherkin
 @creating-reminder
