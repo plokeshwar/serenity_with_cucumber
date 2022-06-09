@@ -28,18 +28,16 @@ Feature: As a busy tester, I should be able to create reminders, so that I can p
     Then he should see a total of 4 reminders added to the list
 
   @multiple-example
-  Scenario: Creating multiple reminders with examples
+  Scenario Outline: Creating multiple reminders with examples
     Given Pravin is on create reminder landing page
     When he creates a reminder "<Reminder>"
     Then he should see "<Reminder>" added to the reminder list
     Then he should see a total of <Count> reminders added to the list
-
     Examples:
     | Reminder          | Count |
     | Review TestPlan A | 1     |
     | Review TestPlan B | 1     |
     | Review TestPlan C | 1     |
-    | Review TestPlan D | 2     |
 
 
   @refresh

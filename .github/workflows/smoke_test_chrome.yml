@@ -20,9 +20,19 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-
-      - name: Snapshot Build
-        run: mvn clean install -T4 -DskipTests
-
       - name: Smoke Tests
-        run: mvn verify
+        run: mvn clean verify -Dcucumber.filter.tags="@creating-reminder"
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: always()
+        with:
+          files: "target/site/serenity/SERENITY*.xml"
+      - name: Zip Reports
+        if: always()
+        run: zip test-artifact.zip target/site/serenity/* -r
+      - name: Upload Artifact GitHub Action
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact-for-download
+          path: test-artifact.zip
