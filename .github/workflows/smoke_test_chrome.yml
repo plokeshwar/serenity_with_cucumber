@@ -21,7 +21,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Smoke Tests
-        run: mvn clean verify -Dcucumber.filter.tags="@creating-reminder"
+        run: mvn clean verify
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
