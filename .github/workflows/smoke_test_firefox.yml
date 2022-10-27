@@ -1,6 +1,6 @@
 name: Smoke Tests (Firefox)
 
-on: [push]
+
 
 jobs:
   build:
